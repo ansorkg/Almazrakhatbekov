@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>microinvest.kg</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+ 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="./microinvest.css">
+
+ </head> 
+<body>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      border: 0;
+      outline: 0;
+      text-decoration: none;
+      transition: all 0.5s;
+    }
+
+    html {
+      font-size: 62.5%;
+      overflow-x: hidden;
+    }
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      }
+
+      .navbar-brand {
+        font-size: 2rem;
+      }
+
+      .nav-link {
+        font-size: 1.6rem;
+        padding: 1rem 1.5rem;
+      }
+
+      .navbar .form-control {
+        font-size: 1.6rem;
+      }
+
+      .navbar button {
+        font-size: 1.6rem;
+        height: 4rem;
+        padding: 0.8rem 1.2rem;
+      } 
+
+      .header {
+                width: 100%;
+                background-color: rgba(0, 0, 0, .2);
+                margin-bottom: 10px;
+                margin-top: 20px;
+            }
+
+      footer {
+        font-size: 1.6rem;
+      }
+
+   
+        @media (max-width: 680px) {
+   h1 {
+    font-size: 3.5rem;
+    text-align: center;
+   }
+
+   
+   .main .foto {
+    margin-bottom: 10px;
+    width: 100%;
+    display: inline;
+    object-fit: cover;
+   }
+}
+  
+.box-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 2.5rem 5%;
+}
+
+.box-container .box {
+  flex: 1 1 35rem;
+  background: #1c1c1c;
+  box-shadow: 0 1rem 2rem rgba(0,0,0,0.8);
+  position: relative;
+  overflow: hidden;
+  margin: 1rem;
+  cursor: pointer;
+}
+
+.box-container .box .img {
+   padding: 1rem;
+   background: #fff;
+   text-align: center;
+}
+
+.box-container .box .img img {
+  width: 25rem;
+  height: 20rem;
+  object-fit: cover;
+  filter: drop-shadow(0 5px 10px rgba (0,0,0,.8));
+}
+
+.box-container .box .info {
+  padding: 1rem;
+  color: #fff;
+  font-size: 1.5rem;
+}
+
+.box-container .box .info .details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 2rem 0rem;
+  border-top: 1px solid rgba(255, 255, 255, 18);
+}
+
+.box-container .box .info .titl-e {
+  margin-bottom: 1rem; 
+}
+
+.box-container .box .info .details .pric-e {
+  font-size: 2rem;
+  color: #ff0;
+}
+
+.box-container .box .info .details .pric-e span {
+  font-size: 1.7rem;
+  color: #888;
+  text-decoration: line-through;
+}
+
+.box-container .box .info .details .stars i {
+  color: orange;
+  font-size: 1.7rem;
+}
+
+.box-container .box .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 22.39rem;
+  background: rgba(0,0,0,.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: scale(0);
+}
+
+.box-container .box .overlay a {
+  background: #fff;
+  color: #000;
+  padding: 1.5rem;
+  font-size: 2rem;
+  transform: translateY(-15rem);
+  transition: transform 0.3s 0.1s;
+}
+
+.box-container .box:hover .overlay a {
+  transform: translateY(0);
+}
+
+.box-container .box:hover .overlay {
+  transform: scale(1);
+}
+  </style>
+
+<!-- Top contact bar -->
+ <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <div class="container-fluid">
+    
+    <a class="navbar-brand" href="./index.html">Microinvest</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="./index.html">Башкы бет</a>
+        </li>
+       <li class="nav-item">
+          <a class="nav-link" href="./about.html">Программа жөнүндө</a>
+        </li>
+       
+        <li class="nav-item">
+          <a class="nav-link" href="./contact.html">Байланыш</a>
+        </li>
+      </ul>
+      <form class="d-flex ms-auto" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+
+  </div>
+</nav>
+
+<!-- Navbar -->
+<div class="header">
+     <ul>
+        <li><a href="./komp.html" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Компьютерлер"><img src="https://compservice.kg/wp-content/uploads/2020/09/computers.png" alt="Компьютер"></a></li>
+        <li><a href="./print.html" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Х принтерлер"><img src="https://compservice.kg/wp-content/uploads/2020/09/printers.png" alt="принтер"></a></li>
+        <li><a href="./pos.html" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Сканерлер"><img src="https://compservice.kg/wp-content/uploads/2020/09/pos.png" alt="пос терминал"></a></li>
+        <li><a href="./scale.html" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Таразалар"><img src="./image/icons8-industrial-scales-50.png" alt="весы"></a></li>
+    </ul>
+</div>
+
+<!-- Main -->
+
+<div class="box-container">
+
+  <!-- 1 -->
+  <div class="box">
+
+    <div class="img">
+      <img src="./image/350b.jpg" alt="printer">
+    </div>
+
+     <div class="info">
+      <h3 class="titl-e">Xprinter 350B</h3>
+      <div class="details">
+        <div class="pric-e">7100c - <span>7500c</span></div>
+        <div class="stars">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+        </div>
+      </div>
+     </div>
+
+     <div class="overlay">
+      <a href="#"><i class="fas fa-shopping-cart"></i>Сатып ал</a>
+     </div>
+
+  </div>
+
+   <!-- 2 -->
+  <div class="box">
+
+    <div class="img">
+      <img src="./image/358bm.jpg" alt="printer">
+    </div>
+
+     <div class="info">
+      <h3 class="titl-e">Xprinter 358BM</h3>
+      <div class="details">
+        <div class="pric-e">7500c - <span>8000c</span></div>
+        <div class="stars">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+        </div>
+      </div>
+     </div>
+
+     <div class="overlay">
+      <a href="#"><i class="fas fa-shopping-cart"></i>Сатып ал</a>
+     </div>
+
+  </div>
+
+   <!-- 3 -->
+  <div class="box">
+
+    <div class="img">
+      <img src="./image/с300h.jpg" alt="printer">
+    </div>
+
+     <div class="info">
+      <h3 class="titl-e">Xprinter C300H</h3>
+      <div class="details">
+        <div class="pric-e">8600c - <span>9100c</span></div>
+        <div class="stars">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+        </div>
+      </div>
+     </div>
+
+     <div class="overlay">
+      <a href="#"><i class="fas fa-shopping-cart"></i>Сатып ал</a>
+     </div>
+
+  </div>
+
+   <!-- 4 -->
+  <div class="box">
+
+    <div class="img">
+      <img src="./image/n160.jpg" alt="printer">
+    </div>
+
+     <div class="info">
+      <h3 class="titl-e">Xprinter N160</h3>
+      <div class="details">
+        <div class="pric-e">6500c - <span>6900c</span></div>
+        <div class="stars">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+        </div>
+      </div>
+     </div>
+
+     <div class="overlay">
+      <a href="#"><i class="fas fa-shopping-cart"></i>Сатып ал</a>
+     </div>
+
+  </div>
+
+   <!-- 5 -->
+  <div class="box">
+
+    <div class="img">
+      <img src="./image/q200.jpg" alt="printer">
+    </div>
+
+     <div class="info">
+      <h3 class="titl-e">Xprinter Q200</h3>
+      <div class="details">
+        <div class="pric-e">7100c - <span>7500c</span></div>
+        <div class="stars">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+        </div>
+      </div>
+     </div>
+
+     <div class="overlay">
+      <a href="#"><i class="fas fa-shopping-cart"></i>Сатып ал</a>
+     </div>
+
+  </div>
+
+   <!-- 6 -->
+  <div class="box">
+
+    <div class="img">
+      <img src="./image/365b.jpg" alt="printer">
+    </div>
+
+     <div class="info">
+      <h3 class="titl-e">Xprinter 365B</h3>
+      <div class="details">
+        <div class="pric-e">5800c - <span>6500c</span></div>
+        <div class="stars">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+        </div>
+      </div>
+     </div>
+
+     <div class="overlay">
+      <a href="#"><i class="fas fa-shopping-cart"></i>Сатып ал</a>
+     </div>
+
+  </div>
+
+</div>
+   
+
+<footer class="bg-dark text-white text-center py-5 mt-0">
+  <div class="container-1">
+    <p class="mb-1">&copy; 2025 Алмаздын Сайты. Бардык укуктар корголгон.</p>
+    <div class="d-flex justify-content-center gap-3">
+      <div class="wrapper">
+  <a href="https://www.facebook.com/almaz.rahatbekov" target="_blank" class="icon facebook">
+      <div class="tooltip">Facebook</div>
+    <span><i class="fab fa-facebook-f"></i></span>
+  </a>
+
+  <a href="https://www.instagram.com/almaz_rakhatbekov/" target="_blank" class="icon instagram">
+      <div class="tooltip">Instagram</div>
+    <span><i class="fab fa-instagram"></i></span>
+  </a>
+
+  <a href="https://t.me/almazrahatbekov" target="_blank" class="icon telegram">
+      <div class="tooltip">Telegram</div>
+    <span><i class="fab fa-telegram"></i></span>
+  </a>
+
+  <a href="https://youtube.com/channel/UC-9s92EumIJeDJOs2_y4rZw?si=ZAEhBrrWv-LM6TNm " target="_blank" class="icon youtube">
+      <div class="tooltip">Youtube</div>
+    <span><i
+       class="fab fa-youtube"></i></span>
+  </a>
+</div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
